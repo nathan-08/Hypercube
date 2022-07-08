@@ -88,12 +88,11 @@ public class Panel extends JPanel {
      * [ 0,   0,   0, 0, 1,] [ s ]
     */
     float[] q = p.clone();
-    float x = p[0]; float y = p[1]; float z = p[2]; float w = p[3]; float s = p[4];
+    float x = p[0]; float y = p[1]; float z = p[2]; float w = p[3];
     q[0] = x;
     q[1] = y*(float)Math.cos(a) - z*(float)Math.sin(a);
     q[2] = y*(float)Math.sin(a) + z*(float)Math.cos(a);
     q[3] = w;
-    q[4] = s;
     return q;
   }
   private float[] rotate_zw(float[]p, double a) {
@@ -285,10 +284,10 @@ public class Panel extends JPanel {
     int[] q = new int[p.length];
     q[0] = toInt(p[0] * scale_factor);
     q[1] = toInt(p[1] * scale_factor);
-    q[2] = toInt(p[2] * scale_factor);
-    q[3] = toInt(p[3] * scale_factor);
-    q[4] = toInt(p[4] * scale_factor);
-    q[5] = toInt(p[5] * scale_factor);
+    //q[2] = toInt(p[2] * scale_factor);
+    //q[3] = toInt(p[3] * scale_factor);
+    //q[4] = toInt(p[4] * scale_factor);
+    //q[5] = toInt(p[5] * scale_factor);
     return q;
   }
   private float[] to_float(int[]p) {
@@ -328,9 +327,6 @@ public class Panel extends JPanel {
       }
       if (p1[3] != p2[3]) {
         g2d.setColor(new Color(0x44, 0x33, 0xaa));
-      }
-      if (p1[4] != p2[4]) {
-        g2d.setColor(new Color(0x22, 0xbb, 0xdd));
       }
       float[]q1 = to_float(p1);
       float[]q2 = to_float(p2);
